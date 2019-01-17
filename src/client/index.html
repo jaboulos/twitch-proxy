@@ -5,13 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>FEC Proxy Server</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div id="app"></div>
-  <div id="video-module"></div>
-  <div id="main"></div>
-  <div id="george-categories-component"></div>
+<body style="margin: 0">
+  <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+  <div id="parent">
+    <div id="left">
+      <div id="app"></div>
+    </div>
+    <div id="middle">
+      <div id="video-module"></div>
+      <div id="george-categories-component"></div>
+    </div>
+    <div id="right">
+        <div id="main"></div>
+        <div id="modal"></div>
+    </div>
+  </div>
+
+
+
   <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+
+  <!-- <script type="text/javascript">
+   const player = new Twitch.Player('video');
+   console.log('how do I make this happen? 🙈', player.getVideo())
+  </script> -->
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <script src="http://localhost:3000/bundle.js"></script>
