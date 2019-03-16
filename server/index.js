@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true }));
 app.use(express.static(path.join(__dirname, '../src/client')));
 
-app.use(proxy('/users', {target: 'http://menbar-loadbalancer-v5-1217560034.us-east-2.elb.amazonaws.com'}));
-app.use(proxy('/recent-highlights', {target: 'http://twitch-categories-98365751.us-east-1.elb.amazonaws.com'}));
+app.use(proxy('/menu-users', {target: 'http://test-proxy-lb-stress-522239733.us-east-2.elb.amazonaws.com'}));
+app.use(proxy('/users', {target: 'http://twitchchat-418651990.us-west-1.elb.amazonaws.com'}));
 app.use(proxy('/recent-broadcasts', {target: 'http://twitch-categories-98365751.us-east-1.elb.amazonaws.com'}));
 app.use(proxy('/api/videos', {target: 'http://video-player-1531420554.us-west-1.elb.amazonaws.com'}));
 app.use(proxy('/api/users', {target: 'http://video-player-1531420554.us-west-1.elb.amazonaws.com'}));
@@ -20,4 +20,3 @@ app.use(proxy('/api/games', {target: 'http://video-player-1531420554.us-west-1.e
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
-
