@@ -17,14 +17,22 @@ app.use(express.static(path.join(__dirname, '../src/client')));
 // app.use(proxy('/api/users', {target: 'http://video-player-1531420554.us-west-1.elb.amazonaws.com'}));
 // app.use(proxy('/api/games', {target: 'http://video-player-1531420554.us-west-1.elb.amazonaws.com'}));
 
-
+//menubar
 app.use(proxy('/users', {target: 'http://ec2-13-59-141-181.us-east-2.compute.amazonaws.com'}));
-app.use(proxy('/chat', {target: 'http://ec2-18-221-253-38.us-east-2.compute.amazonaws.com'}));
-app.use(proxy('/recent-broadcasts', {target: 'http://ec2-52-207-247-179.compute-1.amazonaws.com', changeOrigin: true}));
-// app.use(proxy('/', {target: 'http://ec2-35-174-168-96.compute-1.amazonaws.com'}));
-app.use(proxy('/api/videos', {target: 'http://ec2-18-224-184-152.us-east-2.compute.amazonaws.com', changeOrigin: true}));
 
+
+//chat service
+// app.use(proxy('/chat', {target: 'http://ec2-18-221-253-38.us-east-2.compute.amazonaws.com'}));
+
+//kevins service
+app.use(proxy('/recent-broadcasts', {target: 'http://ec2-52-207-247-179.compute-1.amazonaws.com', changeOrigin: true}));
+
+//video service
+//kevins replacement
+// app.use(proxy('/', {target: 'http://ec2-35-174-168-96.compute-1.amazonaws.com'}));
+//annas video service
+app.use(proxy('/', {target: 'http://ec2-3-19-120-88.us-east-2.compute.amazonaws.com', changeOrigin: true}));
 
 app.listen(port, () => {
-  console.log(`server running at: http://localhost:${port}`);
+  console.log(`server running on port ${port}`);
 });
